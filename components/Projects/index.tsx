@@ -32,12 +32,33 @@ const ProjectCard = ({item}:Props)=>{
           </div>
         </div>
         <div className='flex md:w-[30vw] w-[90vw] item-center justify-center mt-[15px]'>
-          <div className='md:w-[27vw] h-[6rem] w-[85vw]' style={{
+          <div className='md:w-[27vw] relative  pt-[2rem]  transition-all duration-200 h-[8rem] w-[85vw]' style={{
             background: `url(${item.image[0]})`,
             backgroundSize: 'cover',
             backgroundPosition: 'end',
-            backgroundRepeat: 'no-repeat'
-          }} />
+            backgroundRepeat: 'no-repeat',
+     
+          }} >
+            <div className='md:w-[27vw] opacity-0 inline-flex duration-300 gap-[10px] items-center justify-center flex-wrap hover:opacity-100 transition-all h-[8rem] absolute top-0 left-0 w-[85vw]' style={{
+              //background color to dim the image
+              backgroundColor: 'rgba(0,0,0,0.5)',
+              backdropFilter: 'blur(5px)',
+              
+            }}>
+              <div className='inline-flex gap-[10px] items-center justify-center w-[85vw] flex-wrap md:w-[27vw]'>
+
+             {
+               item.tags.map((tag)=>{
+                 return (
+                   <div className='flex brightness-200 font-semibold  bg-white text-black transition-all duration-300 cursor-pointer items-center justify-center px-[10px] h-[30px] rounded-[20px] border border-white'>
+                    <p className='text-[16px]'>{tag}</p>
+                  </div>
+                )
+              })
+            }
+            </div>
+            </div>
+          </div>
         </div>
         <div className='flex md:w-[30vw] w-[90vw] text-white item-center pl-[1.5rem] mt-[16px]'>
           <p className='md:text-[20px] text-[18px] font-[500] tracking-wide border-b pb-[10px] md:w-[26vw] w-[80vw] border-white'>{item.name}</p>
@@ -48,6 +69,19 @@ const ProjectCard = ({item}:Props)=>{
             item.description
         }</p>
         </div>
+        {/* <div className='flex md:w-[30vw] justify-center mt-[1rem] w-[90vw]'>
+          <div className='flex md:w-[25vw] flex-wrap gap-[10px] w-[85vw]'>
+          {
+              item.tags.map((tag)=>{
+                return (
+                  <div className='flex hover:bg-white hover:text-black transition-all duration-300 cursor-pointer items-center justify-center px-[10px] h-[30px] rounded-[20px] text-white border border-white'>
+                    <p className='text-[16px]'>{tag}</p>
+                  </div>
+                )
+              })
+            }
+          </div>
+        </div> */}
       </div>
  
   )
@@ -56,7 +90,7 @@ const ProjectCard = ({item}:Props)=>{
 const Projects = () => {
   const { projects } = useData()
   return (
-    <div className="w-[100vw] flex justify-center my-[2rem]">
+    <div id='projects' className="w-[100vw] flex justify-center my-[2rem]">
     <div className="w-[95vw] flex flex-wrap gap-[1rem] md:justify-start justify-center">
     {
         projects.map((project)=>{

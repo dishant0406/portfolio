@@ -35,7 +35,8 @@ export async function getStaticProps() {
     "image": image[].asset->url,
     isLatest,
     github,
-    live
+    live,
+    tags
   }`
 
   let projects:Project[] = await client.fetch(query)

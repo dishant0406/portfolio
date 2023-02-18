@@ -18,9 +18,9 @@ const NavBar = () => {
           <div className='w-[15.2vw] cursor-pointer text-white flex items-center hover:bg-white transition-all duration-300 hover:text-black border border-white rounded-[20px] h-[30px]'>
             <p className=' text-[18px] ml-[15px]'>About Me</p>
           </div>
-          <div className='w-[15.2vw] cursor-pointer text-white flex items-center hover:bg-white transition-all duration-300 hover:text-black border border-white rounded-[20px] h-[30px]'>
+          <a href='#projects' className='w-[15.2vw] cursor-pointer text-white flex items-center hover:bg-white transition-all duration-300 hover:text-black border border-white rounded-[20px] h-[30px]'>
             <p className=' text-[18px] ml-[15px]'>Projects</p>
-          </div>
+          </a>
         </div>
       </div>
       <div className='flex gap-[8px] mr-[2rem] h-[80px] items-center'>
