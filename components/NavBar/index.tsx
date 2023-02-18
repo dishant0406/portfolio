@@ -1,10 +1,13 @@
 import {BsGithub,BsTwitter,BsFillArrowRightCircleFill} from 'react-icons/bs'
 import {FaLinkedinIn} from 'react-icons/fa'
+import { useData } from 'utils';
 
 const NavBar = () => {
+
+  const {info} = useData()
   return (
-    <div className='w-[100vw] h-[70px] justify-between flex items-center'>
-      <div className='h-[70px] flex items-center'>
+    <div className='w-[100vw] h-[80px] justify-between flex items-center'>
+      <div className='h-[80px] flex items-center'>
         <div className='md:w-[16vw] w-[40vw] ml-[1rem] border border-white flex rounded-[20px] items-center justify-center h-[40px]'>
           <div className='md:w-[15.2vw] w-[95%] cursor-pointer justify-between text-white flex items-center hover:bg-white transition-all duration-300 hover:text-black border border-white rounded-[20px] h-[30px]'>
             <p className=' text-[18px] ml-[15px]'>Portfolio</p>
@@ -20,17 +23,18 @@ const NavBar = () => {
           </div>
         </div>
       </div>
-      <div className='flex gap-[8px] mr-[2rem]'>
-        <div className='h-[50px] flex transition-all duration-300 text-white hover:bg-white hover:text-black items-center justify-center w-[50px] rounded-full border border-white'>
+      <div className='flex gap-[8px] mr-[2rem] h-[80px] items-center'>
+        <a href={info?.github} target='_blank' className='h-[50px] hover:scale-95 flex transition-all duration-300 text-white hover:bg-white hover:text-black items-center justify-center w-[50px] rounded-full border border-white'>
           <BsGithub className=' scale-125'/>
-        </div>
-        <div className='h-[50px] flex transition-all duration-300 text-white hover:bg-white hover:text-black items-center justify-center w-[50px] rounded-full border border-white'>
+        </a>
+        <a href={info?.linkedin} target='_blank' className='h-[50px] hover:scale-95 flex transition-all duration-300 text-white hover:bg-white hover:text-black items-center justify-center w-[50px] rounded-full border border-white'>
           <FaLinkedinIn className=' scale-125'/>
-        </div>
-        <div className='h-[50px] flex transition-all duration-300 text-white hover:bg-white hover:text-black items-center justify-center w-[50px] rounded-full border border-white'>
+        </a>
+        <a href={info?.twitter} target='_blank' className='h-[50px] hover:scale-95 flex transition-all duration-300 text-white hover:bg-white hover:text-black items-center justify-center w-[50px] rounded-full border border-white'>
           <BsTwitter className=' scale-125'/>
-        </div>
+        </a>
       </div>
+      
     </div>
   )
 }

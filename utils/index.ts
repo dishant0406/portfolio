@@ -1,5 +1,8 @@
 import client from "./Sanity";
+import { useData,DataProvider } from "./Context/getData";
 
 export {
-  client
+  client,
+  useData,
+  DataProvider
 }
