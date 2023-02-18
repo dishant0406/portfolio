@@ -1,5 +1,5 @@
 import { Info, Project } from 'utils/Types'
-import { NavBar, HeroSection, Projects } from 'components'
+import { NavBar, HeroSection, Projects, SEO } from 'components'
 import { client, useData } from 'utils'
 import { useEffect } from 'react'
 
@@ -20,6 +20,7 @@ const Home = ({projects, myInfo}:Props) => {
     <div style={{
       cursor: `url(assets/cursor.svg), auto`,
     }} className='min-h-[100vh] w-[100vw] bg-black'>
+      <SEO title='Dishant Sharma - Developer'/>
       <NavBar />
       <HeroSection />
       <Projects />
