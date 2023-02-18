@@ -17,7 +17,9 @@ const Home = ({projects, myInfo}:Props) => {
   },[])
 
   return (
-    <div className='min-h-[100vh] w-[100vw] bg-black'>
+    <div style={{
+      cursor: `url(assets/cursor.svg), auto`,
+    }} className='min-h-[100vh] w-[100vw] bg-black'>
       <NavBar />
       <HeroSection />
       <Projects />
