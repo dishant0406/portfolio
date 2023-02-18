@@ -32,14 +32,14 @@ const ProjectCard = ({item}:Props)=>{
           </div>
         </div>
         <div className='flex md:w-[30vw] w-[90vw] item-center justify-center mt-[15px]'>
-          <div className='md:w-[27vw] relative  pt-[2rem]  transition-all duration-200 h-[8rem] w-[85vw]' style={{
+          <div className='md:w-[27vw] relative  pt-[2rem]  transition-all duration-200 h-[6rem] w-[85vw]' style={{
             background: `url(${item.image[0]})`,
             backgroundSize: 'cover',
             backgroundPosition: 'end',
             backgroundRepeat: 'no-repeat',
      
           }} >
-            <div className='md:w-[27vw] opacity-0 inline-flex duration-300 gap-[10px] items-center justify-center flex-wrap hover:opacity-100 transition-all h-[8rem] absolute top-0 left-0 w-[85vw]' style={{
+            <div className='md:w-[27vw] opacity-0 inline-flex duration-300 gap-[10px] items-center justify-center flex-wrap hover:opacity-100 transition-all h-[6rem] absolute top-0 left-0 w-[85vw]' style={{
               //background color to dim the image
               backgroundColor: 'rgba(0,0,0,0.5)',
               backdropFilter: 'blur(5px)',
@@ -50,7 +50,7 @@ const ProjectCard = ({item}:Props)=>{
              {
                item.tags.map((tag)=>{
                  return (
-                   <div className='flex brightness-200 font-semibold  bg-white text-black transition-all duration-300 cursor-pointer items-center justify-center px-[10px] h-[30px] rounded-[20px] border border-white'>
+                   <div className='flex brightness-200 font-semibold  bg-white text-black transition-all duration-300 cursor-pointer items-center justify-center px-[10px] h-[25px] overflow-hidden rounded-[20px] border border-white'>
                     <p className='text-[16px]'>{tag}</p>
                   </div>
                 )
@@ -64,8 +64,8 @@ const ProjectCard = ({item}:Props)=>{
           <p className='md:text-[20px] text-[18px] font-[500] tracking-wide border-b pb-[10px] md:w-[26vw] w-[80vw] border-white'>{item.name}</p>
         </div>
         <div className='flex md:w-[30vw] w-[90vw] text-white item-center pl-[1.5rem] mt-[16px]'>
-          <p className='tracking-wide  pb-[10px] md:w-[26vw] w-[80vw]'>{item.description.length>90?
-            `${item.description.slice(0,90)}...`:
+          <p className='tracking-wide  pb-[10px] md:w-[26vw] w-[80vw]'>{item.description.length>75?
+            `${item.description.slice(0,75)}...`:
             item.description
         }</p>
         </div>
