@@ -83,6 +83,7 @@ export async function getStaticProps() {
       projects,
       myInfo
     },
+    revalidate:120
   }
 }
 
