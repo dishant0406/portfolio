@@ -40,11 +40,11 @@ const HeroSection = () => {
         </motion.div>
       </motion.div>
       <div className='max-w-[100vw] flex mt-[1rem] justify-center'>
-        <div className='flex max-w-[90vw] flex-wrap gap-[10px]'>
+        <div className='flex max-w-[90vw] justify-center md:justify-start flex-wrap gap-[10px]'>
           {
            info?.skills.map((skill, index)=>{
               return (
-                <motion.div initial={{ opacity: 0, scale:0 }} animate={{opacity: 1,scale:1 }} transition={{ delay: 0.3 + (0.04*index)  }} key={skill} className='px-[1rem] text-[#555555] hover:bg-white transition-all duration-300 cursor-pointer hover:text-black h-[40px] border rounded-[20px] flex items-center border-[#555555]'>
+                <motion.div initial={{ opacity: 0, scale:0 }} animate={{opacity: 1,scale:1 }} transition={{ delay: 0.3 + (Math.random()*1.5)  }} key={skill} className='px-[1rem] text-[#555555] hover:bg-white transition-all duration-300 cursor-pointer hover:text-black h-[40px] border rounded-[20px] flex items-center border-[#555555]'>
                 <p className=' text-[18px]'>{skill}</p>
               </motion.div>
               )
