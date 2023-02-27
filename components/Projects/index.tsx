@@ -1,6 +1,7 @@
 import { Project } from 'utils/Types';
 import {BsFillArrowRightCircleFill} from 'react-icons/bs'
 import { useData } from 'utils';
+import { motion } from 'framer-motion';
 
 type Props = {
   item: Project
@@ -50,7 +51,7 @@ const ProjectCard = ({item}:Props)=>{
              {
                item.tags.map((tag)=>{
                  return (
-                   <div className='flex brightness-200 font-semibold  bg-white text-black transition-all duration-300 cursor-pointer items-center justify-center px-[10px] h-[25px] overflow-hidden rounded-[20px] border border-white'>
+                   <div key={tag} className='flex brightness-200 font-semibold  bg-white text-black transition-all duration-300 cursor-pointer items-center justify-center px-[10px] h-[25px] overflow-hidden rounded-[20px] border border-white'>
                     <p className='text-[16px]'>{tag}</p>
                   </div>
                 )
@@ -69,19 +70,6 @@ const ProjectCard = ({item}:Props)=>{
             item.description
         }</p>
         </div>
-        {/* <div className='flex md:w-[30vw] justify-center mt-[1rem] w-[90vw]'>
-          <div className='flex md:w-[25vw] flex-wrap gap-[10px] w-[85vw]'>
-          {
-              item.tags.map((tag)=>{
-                return (
-                  <div className='flex hover:bg-white hover:text-black transition-all duration-300 cursor-pointer items-center justify-center px-[10px] h-[30px] rounded-[20px] text-white border border-white'>
-                    <p className='text-[16px]'>{tag}</p>
-                  </div>
-                )
-              })
-            }
-          </div>
-        </div> */}
       </div>
  
   )
@@ -91,11 +79,13 @@ const Projects = () => {
   const { projects } = useData()
   return (
     <div id='projects' className="w-[100vw] flex justify-center my-[2rem]">
-    <div className="w-[95vw] flex flex-wrap gap-[1rem] md:justify-start justify-center">
+    <div className="w-[95vw] overflow-y-hidden flex flex-wrap gap-[1rem] md:justify-start justify-center">
     {
-        projects.map((project)=>{
+        projects.map((project, index)=>{
           return (
-            <ProjectCard item={project} key={project._id} />
+            <motion.div initial={{ opacity: 0, y:200 }} animate={{opacity: 1,y:0 }} transition={{ delay: 0.3 + (0.04*index) }} key={project._id}>
+              <ProjectCard item={project} />
+            </motion.div>
           )
         })
     }
