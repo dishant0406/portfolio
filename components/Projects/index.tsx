@@ -15,15 +15,15 @@ const ProjectCard = ({item}:Props)=>{
   }
   return (
    
-      <div className="border rounded-[30px] border-white md:w-[30vw] w-[90vw] pb-[1rem]">
-        <div className="flex md:w-[30vw] w-[90vw] item-center justify-between">
+      <div className="border rounded-[30px] shadow-white shadow-md border-white md:w-[30vw] w-[90vw] pb-[1rem]">
+        <div className="flex md:w-[30vw] w-[90vw] p-[5px] pb-[8px] item-center justify-between">
           {
             item.isLatest?(
-              <div className=" text-white hover:text-black hover:bg-white transition-all duration-300 cursor-pointer flex items-center justify-center px-[1rem] h-[30px] rounded-[20px] ml-[1rem] mt-[1rem] border border-white">
+              <div className=" text-white shadow-white shadow-md hover:text-black hover:bg-white transition-all duration-300 cursor-pointer flex items-center justify-center px-[1rem] h-[30px] rounded-[20px] ml-[1rem] mt-[1rem] border border-white">
                 <p className="text-[16px]">LATEST PROJECT</p>
               </div>
             ):(
-              <div className=" text-[#999999] hover:text-black hover:bg-white transition-all duration-300 cursor-pointer flex items-center justify-center px-[1rem] h-[30px] rounded-[20px] ml-[1rem] mt-[1rem] border border-[#999999]">
+              <div className=" text-[#999999] shadow-white shadow-md hover:text-black hover:bg-white transition-all duration-300 cursor-pointer flex items-center justify-center px-[1rem] h-[30px] rounded-[20px] ml-[1rem] mt-[1rem] border border-[#999999]">
                 <p className="text-[16px]">PROJECT</p>
               </div>
             )
@@ -83,7 +83,7 @@ const Projects = () => {
     {
         projects.map((project, index)=>{
           return (
-            <motion.div initial={{ opacity: 0, y:200 }} animate={{opacity: 1,y:0 }} transition={{ delay: 0.3 + (0.04*index) }} key={project._id}>
+            <motion.div className='p-[5px] pb-[1rem]' initial={{ opacity: 0, y:200 }} animate={{opacity: 1,y:0 }} transition={{ delay: 0.3 + (0.04*index) }} key={project._id}>
               <ProjectCard item={project} />
             </motion.div>
           )
