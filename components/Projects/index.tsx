@@ -3,6 +3,7 @@ import { BsFillArrowRightCircleFill } from 'react-icons/bs'
 import { useData } from 'utils';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import Link from 'next/link';
 
 type Props = {
   item: Project
@@ -15,17 +16,12 @@ const ProjectCard = ({ item }: Props) => {
     window.open(link, '_blank')
   }
   return (
-    <div className='relative overflow-visible h-[40vh] md:h-[45vh] md:w-[28vw] w-[90vw]'>
-      <div className='md:h-[40vh] h-[35.5vh] w-full absolute bg-yellow-300 top-[3vh] left-[1.5vw] md:left-[0.8vw] rounded-[30px] transition-all duration-300' style={{
-        zIndex: 0,
-
-        opacity: isHoverd ? 1 : 0,
-      }}></div>
+    <div className='relative hover:scale-105 transition-all duration-300 overflow-visible h-[40vh] md:h-[45vh] md:w-[28vw] w-[90vw]'>
 
       <div
         onMouseEnter={() => setIsHoverd(true)}
         onMouseLeave={() => setIsHoverd(false)}
-        className="border z-[1] bg-black absolute top-0 right-0 rounded-[30px] shadow-white shadow-md border-white md:w-[28vw] w-[90vw] pb-[1rem]">
+        className="border z-[1] bg-black absolute top-0 right-0 rounded-[30px] shadow-white hover:shadow-lg transition-all duration-300 hover:shadow-white shadow-md border-white md:w-[28vw] w-[90vw] pb-[1rem]">
         <div className="flex md:w-[28vw] w-[90vw] p-[5px] pb-[8px] item-center justify-between">
           {
             item.isLatest ? (
@@ -38,9 +34,11 @@ const ProjectCard = ({ item }: Props) => {
               </div>
             )
           }
-          <div className='flex items-center'>
-            <BsFillArrowRightCircleFill onClick={gotoLink} className='text-white w-[40px] cursor-pointer hover:scale-110 transition-all duration-300  scale-125 mr-[8px]' />
-          </div>
+          <Link href={
+            item.live ? item.live : item.github
+          } target='_blank' className='flex items-center'>
+            <BsFillArrowRightCircleFill className='text-white w-[40px] cursor-pointer hover:scale-110 transition-all duration-300  scale-125 mr-[8px]' />
+          </Link>
         </div>
         <div className='flex md:w-[28vw] w-[90vw] item-center justify-center mt-[15px]'>
           <div className='md:w-[27vw] relative  pt-[2rem]  transition-all duration-200 h-[6rem] w-[85vw]' style={{

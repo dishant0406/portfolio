@@ -11,53 +11,70 @@ type Props = {
 export default function SEO({
   author = 'Dishant Sharma',
   meta,
-  title = 'Dishant Sharma -  Developer Portfolio',
-}:Props) {
-  const metaData = [
-    {
-      name: `description`,
-      content: 'Check out Dishant Sharma\'s portfolio website to see his latest projects and experience as a Full Stack Developer.',
-    },
-    {
-      property: `og:title`,
-      content: 'Dishant Sharma -  Developer Portfolio',
-    },
-    {
-      property: `og:description`,
-      content: 'Check out Dishant Sharma\'s portfolio website to see his latest projects and experience as a Full Stack Developer.',
-    },
-    {
-      property: `og:type`,
-      content: `website`,
-    },
-    {
-      name: `twitter:card`,
-      content: `summary`,
-    },
-    {
-      name: `twitter:creator`,
-      content: 'Dishant Sharma',
-    },
-    {
-      name: `twitter:title`,
-      content: 'Dishant Sharma -  Developer Portfolio',
-    },
-    {
-      name: `twitter:description`,
-      content: 'Check out Dishant Sharma\'s portfolio website to see his latest projects and experience as a Full Stack Developer.',
-    },
-  ].concat(meta);
+  title = 'Dishant Sharma | Web Developer Portfolio | Coding Projects',
+}: Props) {
   return (
     <Head>
-      <title>{title}</title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta charSet="utf-8" />
       <link rel="icon" href="assets/favicon.ico" />
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" />
-      {metaData.map(({ name, content }, i) => (
-        <meta key={i} name={name} content={content} />
-      ))}
+      <title>Dishant Sharma | Web Developer Portfolio | Coding Projects</title>
+      <meta
+        name="description"
+        content="Discover Dishant Sharma's Developer portfolio website. Explore his latest coding projects, skills, and professional experience in web development"
+      />
+      <meta property="og:url" content="https://dishantsharma.dev" />
+      <meta property="og:type" content="website" />
+      <meta
+        property="og:title"
+        content="Dishant Sharma | Web Developer Portfolio | Coding Projects"
+      />
+      <meta
+        property="og:description"
+        content="Discover Dishant Sharma's Developer portfolio website. Explore his latest coding projects, skills, and professional experience in web development"
+      />
+      <meta
+        property="og:image"
+        content="https://opengraph.b-cdn.net/production/images/b587401e-0246-480e-b355-e1ba0efc6e29.png?token=bhuJWqxMlhJbrcut1SvtS1hJCruBNLjz0Ss33jv9yMs&height=630&width=1200&expires=33252708823"
+      />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta property="twitter:domain" content="dishantsharma.dev" />
+      <meta property="twitter:url" content="https://dishantsharma.dev" />
+      <meta
+        name="twitter:title"
+        content="Dishant Sharma | Web Developer Portfolio | Coding Projects"
+      />
+      <meta
+        name="twitter:description"
+        content="Discover Dishant Sharma's Developer portfolio website. Explore his latest coding projects, skills, and professional experience in web development"
+      />
+      <meta
+        name="twitter:image"
+        content="https://opengraph.b-cdn.net/production/images/b587401e-0246-480e-b355-e1ba0efc6e29.png?token=bhuJWqxMlhJbrcut1SvtS1hJCruBNLjz0Ss33jv9yMs&height=630&width=1200&expires=33252708823"
+      />
+      <link rel="canonical" href="https://dishantsharma.dev" />
+      {/* Mobile Responsive */}
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      {/* Language */}
+      <meta httpEquiv="Content-Language" content="en" />
+      {/* Author */}
+      <meta name="author" content="Dishant Sharma" />
+      {/* Robots */}
+      <meta name="robots" content="index, follow" />
+      {/* Refresh */}
+      <meta httpEquiv="refresh" content={'30'} />
+      {/* Keywords */}
+      {/* x-robot */}
+      <meta name="googlebot" content="index, follow" />
+      {/* publisher */}
+      <meta name="publisher" content="Dishant Sharma" />
+      <meta
+        name="keywords"
+        content="web developer, portfolio, coding projects, full stack developer"
+      />
     </Head>
   );
 }

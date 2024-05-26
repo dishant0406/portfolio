@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dishantsharma.dev/sitemap.xml
+
+User-agent: *
+Disallow: /admin/
+Disallow: /private/
+
+User-agent: BadBot
+Disallow: /

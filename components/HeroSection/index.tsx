@@ -35,7 +35,7 @@ const HeroSection = () => {
     <div className="w-[100vw] mt-[2rem]  flex flex-col items-center">
       <motion.div initial={{ opacity: 0, y: 100 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="w-[95vw] flex md:flex-row flex-col bg-[#839292] md:py-[0] py-[1rem] justify-between rounded-[30px] md:items-end md:h-[35vh]">
         <motion.div initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.7 }} className='md:mb-[2rem] mb-[1rem] w-[95vw] items-center flex-col  flex md:hidden'>
-          <Image alt='Profile Picture' height={400} width={400} src={info?.image!} className='h-[20vh] w-auto mb-[0.5rem]' />
+          <Image alt='Profile Picture' height={250} width={250} src={info?.image!} className='h-[20vh] w-auto mb-[0.5rem]' />
           <div onClick={() => setIsOpen(true)} className='px-[2rem] bg-[#95a2a2] text-white hover:bg-white hover:text-black transition-all duration-300 cursor-pointer flex items-center h-[30px] mt-[10px]  rounded-[20px]'>
             <p>Resume</p>
           </div>
@@ -62,14 +62,14 @@ const HeroSection = () => {
           </div>
         </motion.div>
         <motion.div initial={{ opacity: 0, x: 200 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.7 }} className=' p-[1rem] md:flex md:flex-col items-center hidden mr-[2rem]'>
-          <Image height={400} width={400} alt='Profile Picture' src={info?.image!} className='h-[25vh] w-auto' />
+          <Image height={250} width={250} alt='Profile Picture' src={info?.image!} className='h-[25vh] w-auto' />
           <div onClick={() => setIsOpen(true)} className='px-[1rem] shadow-black shadow-md text-white bg-[#95a2a2] hover:bg-white hover:text-black transition-all duration-300 cursor-pointer flex items-center h-[30px] mt-[10px]  rounded-[20px]'>
             <p>Resume</p>
           </div>
         </motion.div>
       </motion.div>
       <div className='max-w-[100vw] flex mt-[1rem] justify-center'>
-        <div className='flex max-w-[90vw] pb-[2rem] justify-center md:justify-start flex-wrap gap-[10px]'>
+        <div className='flex max-w-[90vw] pb-[2rem] justify-center md:justify-start gap-y-[2vh] flex-wrap gap-[10px]'>
           {
             info?.skills.map((skill, index) => {
               return (
