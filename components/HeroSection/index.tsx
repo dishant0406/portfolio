@@ -4,6 +4,7 @@ import { useData } from 'utils';
 import { ResumeModal } from '..'
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { customCursorStyle } from 'ipad-cursor';
 
 
 const ColorChangingSpanOnHover = ({ children, className = '' }: { children: string, className?: string }) => {
@@ -19,7 +20,7 @@ const ColorChangingSpanOnHover = ({ children, className = '' }: { children: stri
     <span
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => deBouncedSetIsHovered(false)}
-      className={`${className} cursor-pointer transition-all duration-300 ${isHovered ? 'text-yellow-300' : 'text-white'}`}
+      className={`${className}  transition-all duration-300 ${isHovered ? 'text-yellow-300' : 'text-white'}`}
     >
       {children}
     </span>
@@ -36,7 +37,7 @@ const HeroSection = () => {
       <motion.div initial={{ opacity: 0, y: 100 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="w-[95vw] flex md:flex-row flex-col bg-[#839292] md:py-[0] py-[1rem] justify-between rounded-[30px] md:items-end md:h-[35vh]">
         <motion.div initial={{ opacity: 0, x: 100 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.7 }} className='md:mb-[2rem] mb-[1rem] w-[95vw] items-center flex-col  flex md:hidden'>
           <Image alt='Profile Picture' height={250} width={250} src={info?.image!} className='h-[20vh] w-auto mb-[0.5rem]' />
-          <div onClick={() => setIsOpen(true)} className='px-[2rem] bg-[#95a2a2] text-white hover:bg-white hover:text-black transition-all duration-300 cursor-pointer flex items-center h-[30px] mt-[10px]  rounded-[20px]'>
+          <div onClick={() => setIsOpen(true)} className='px-[2rem] bg-[#95a2a2] text-white hover:bg-white hover:text-black transition-all duration-300  flex items-center h-[30px] mt-[10px]  rounded-[20px]'>
             <p>Resume</p>
           </div>
         </motion.div>
@@ -52,7 +53,7 @@ const HeroSection = () => {
           </p>
 
           <div className='flex md:flex-row flex-col p-[1rem] gap-[10px] md:ml-[0] items-center'>
-            <div className='pl-[5px]  cursor-pointer justify-between text-white flex items-center shadow-black shadow-md hover:bg-white transition-all duration-300 hover:text-[#9ca8a8] border border-white rounded-[20px] h-[40px]'>
+            <div data-cursor="block" className='pl-[5px]   justify-between text-white flex items-center shadow-black shadow-md hover:bg-white transition-all duration-300 hover:text-[#9ca8a8] border border-white rounded-[20px] h-[40px]'>
               <p className=' md:text-[20px] text-[24px] whitespace-nowrap  ml-[15px]'>{info?.job}</p>
               <BsFillArrowRightCircleFill className='ml-[2rem] scale-125 mr-[8px]' />
             </div>
@@ -62,8 +63,10 @@ const HeroSection = () => {
           </div>
         </motion.div>
         <motion.div initial={{ opacity: 0, x: 200 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.7 }} className=' p-[1rem] md:flex md:flex-col items-center hidden mr-[2rem]'>
-          <Image height={250} width={250} alt='Profile Picture' src={info?.image!} className='h-[25vh] w-auto' />
-          <div onClick={() => setIsOpen(true)} className='px-[1rem] shadow-black shadow-md text-white bg-[#95a2a2] hover:bg-white hover:text-black transition-all duration-300 cursor-pointer flex items-center h-[30px] mt-[10px]  rounded-[20px]'>
+          <Image data-cursor="block" data-cursor-style={customCursorStyle({
+            radius: 100,
+          })} height={250} width={250} alt='Profile Picture' src={info?.image!} className='h-[25vh] w-auto' />
+          <div data-cursor="block" onClick={() => setIsOpen(true)} className='px-[1rem] shadow-black shadow-md text-white bg-[#95a2a2] hover:bg-white hover:text-black transition-all duration-300  flex items-center h-[30px] mt-[10px]  rounded-[20px]'>
             <p>Resume</p>
           </div>
         </motion.div>
@@ -73,7 +76,7 @@ const HeroSection = () => {
           {
             info?.skills.map((skill, index) => {
               return (
-                <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.3 + (Math.random() * 1.5) }} key={skill} className='px-[1rem] shadow-gray-500 shadow-md text-[#555555] hover:bg-white transition-all duration-300 cursor-pointer hover:text-black h-[40px] border rounded-[20px] flex items-center border-[#555555]'>
+                <motion.div data-cursor="block" initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.3 + (Math.random() * 1.5) }} key={skill} className='px-[1rem] shadow-gray-500 shadow-md text-[#555555] hover:bg-white transition-all duration-300  hover:text-black h-[40px] border rounded-[20px] flex items-center border-[#555555]'>
                   <p className=' text-[18px]'>{skill}</p>
                 </motion.div>
               )

@@ -64,8 +64,6 @@ export default function SEO({
       <meta name="author" content="Dishant Sharma" />
       {/* Robots */}
       <meta name="robots" content="index, follow" />
-      {/* Refresh */}
-      <meta httpEquiv="refresh" content={'30'} />
       {/* Keywords */}
       {/* x-robot */}
       <meta name="googlebot" content="index, follow" />

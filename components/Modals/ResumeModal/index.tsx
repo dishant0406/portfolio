@@ -10,10 +10,10 @@ type Props = {
   isZoomed: boolean
 }
 
-export default function ResumeModal({isOpen, setIsOpen, setIsZoomed, isZoomed}:Props) {
-  
-  
-  const {info} = useData()
+export default function ResumeModal({ isOpen, setIsOpen, setIsZoomed, isZoomed }: Props) {
+
+
+  const { info } = useData()
 
   function closeModal() {
     setIsOpen(false)
@@ -25,7 +25,7 @@ export default function ResumeModal({isOpen, setIsOpen, setIsZoomed, isZoomed}:P
 
   //shouldZoom boolean
   //onZoomChange function with shouldZoom as boolean
-  const handleZoomChange:(shouldZoom:boolean)=>void = useCallback((shouldZoom) => {
+  const handleZoomChange: (shouldZoom: boolean) => void = useCallback((shouldZoom) => {
     setIsZoomed(shouldZoom)
   }, [])
 
@@ -71,13 +71,13 @@ export default function ResumeModal({isOpen, setIsOpen, setIsZoomed, isZoomed}:P
                   </Dialog.Title>
                   <div className="mt-2">
                     <div className="text-sm text-gray-500">
-                      <span onClick={gotolink} className='text-blue-500 cursor-pointer no-underline'>Click here</span> to download my resume <b>OR</b> Click on the image to view
+                      <span onClick={gotolink} className='text-blue-500  no-underline'>Click here</span> to download my resume <b>OR</b> Click on the image to view
                     </div>
                   </div>
                   <div className="mt-4">
-                  <Zoom >
-                    <img src={info?.resumeImage} width='380' />
-                  </Zoom>
+                    <Zoom >
+                      <img src={info?.resumeImage} width='380' />
+                    </Zoom>
                   </div>
 
                 </Dialog.Panel>

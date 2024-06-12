@@ -25,19 +25,19 @@ const ProjectCard = ({ item }: Props) => {
         <div className="flex md:w-[28vw] w-[90vw] p-[5px] pb-[8px] item-center justify-between">
           {
             item.isLatest ? (
-              <div className=" text-white shadow-white shadow-md hover:text-black hover:bg-white transition-all duration-300 cursor-pointer flex items-center justify-center px-[1rem] h-[30px] rounded-[20px] ml-[1rem] mt-[1rem] border border-white">
+              <div data-cursor="block" className=" text-white shadow-white shadow-md hover:text-black hover:bg-white transition-all duration-300  flex items-center justify-center px-[1rem] h-[30px] rounded-[20px] ml-[1rem] mt-[1rem] border border-white">
                 <p className="text-[16px]">LATEST PROJECT</p>
               </div>
             ) : (
-              <div className=" text-[#999999] shadow-white shadow-md hover:text-black hover:bg-white transition-all duration-300 cursor-pointer flex items-center justify-center px-[1rem] h-[30px] rounded-[20px] ml-[1rem] mt-[1rem] border border-[#999999]">
+              <div data-cursor="block" className=" text-[#999999] shadow-white shadow-md hover:text-black hover:bg-white transition-all duration-300  flex items-center justify-center px-[1rem] h-[30px] rounded-[20px] ml-[1rem] mt-[1rem] border border-[#999999]">
                 <p className="text-[16px]">PROJECT</p>
               </div>
             )
           }
-          <Link href={
+          <Link data-cursor="block" href={
             item.live ? item.live : item.github
           } target='_blank' className='flex items-center'>
-            <BsFillArrowRightCircleFill className='text-white w-[40px] cursor-pointer hover:scale-110 transition-all duration-300  scale-125 mr-[8px]' />
+            <BsFillArrowRightCircleFill className='text-white w-[40px]  hover:scale-110 transition-all duration-300  scale-125 mr-[8px]' />
           </Link>
         </div>
         <div className='flex md:w-[28vw] w-[90vw] item-center justify-center mt-[15px]'>
@@ -45,21 +45,20 @@ const ProjectCard = ({ item }: Props) => {
             background: `url(${item.image[0]})`,
             backgroundSize: 'cover',
             backgroundPosition: 'end',
-            backgroundRepeat: 'no-repeat',
-
-          }} >
+            backgroundRepeat: 'no-repeat'
+          }}>
             <div className='md:w-[27vw] opacity-0 inline-flex duration-300 gap-[10px] items-center justify-center flex-wrap hover:opacity-100 transition-all h-[6rem] absolute top-0 left-0 w-[85vw]' style={{
               //background color to dim the image
               backgroundColor: 'rgba(0,0,0,0.5)',
               backdropFilter: 'blur(5px)',
 
             }}>
-              <div className='inline-flex gap-[10px] items-center justify-center w-[85vw] flex-wrap md:w-[27vw]'>
+              <div className='inline-flex gap-[10px] overflow-hidden items-center justify-center w-[85vw] flex-wrap md:w-[27vw]'>
 
                 {
                   item.tags.map((tag) => {
                     return (
-                      <div key={tag} className='flex brightness-200 font-semibold  bg-white text-black transition-all duration-300 cursor-pointer items-center justify-center px-[10px] h-[25px] overflow-hidden rounded-[20px] border border-white'>
+                      <div data-cursor="block" key={tag} className='flex brightness-200 font-semibold  bg-white text-black transition-all duration-300  items-center justify-center px-[10px] h-[25px] overflow-hidden rounded-[20px] border border-white'>
                         <p className='text-[16px]'>{tag}</p>
                       </div>
                     )

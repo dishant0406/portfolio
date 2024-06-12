@@ -4,6 +4,8 @@ import { client, useData } from 'utils'
 import { useEffect } from 'react'
 import Image from 'next/image'
 import { HiOutlineMail } from "react-icons/hi";
+import type { IpadCursorConfig } from 'ipad-cursor'
+import { IPadCursorProvider, useIPadCursor } from 'ipad-cursor/react'
 
 type Props = {
   projects: Project[],
@@ -12,6 +14,14 @@ type Props = {
 
 const Home = ({ projects, myInfo }: Props) => {
   const { setProjects, setMyInfo } = useData()
+  const config: IpadCursorConfig = {
+    blockStyle: {
+      radius: 30
+    },
+    enableAutoUpdateCursor: true,
+    enableLighting: true,
+  }
+  useIPadCursor()
 
   useEffect(() => {
     setProjects(projects)
@@ -19,28 +29,28 @@ const Home = ({ projects, myInfo }: Props) => {
   }, [])
 
   return (
-    <div style={{
-      cursor: `url(assets/cursor.svg), auto`,
-    }} className='min-h-[100vh] select-none w-[100vw] bg-black'>
-      <SEO title='Dishant Sharma - Developer' />
-      <NavBar />
-      <HeroSection />
-      <Projects />
-      <div className='md:h-[10vh] md:py-0 py-[1rem] w-full border-t border-white px-[5%] md:gap-0 gap-[1rem] justify-between md:flex-row flex-col flex items-center'>
-        <div className='flex items-center gap-[1rem]'>
-          <Image src='/assets/favicon.ico' alt='logo' width={30} height={30} />
-          <p className='text-white'>© {
-            new Date().getFullYear()
-          } Dishant Sharma</p>
-        </div>
-        <div className='flex items-center gap-[0.5rem]'>
-          <HiOutlineMail className='text-white text-[20px]' />
-          <a href='mailto:dishant5570@gmail.com' className='text-white'>
-            dishant5570@gmail.com
-          </a>
+    <IPadCursorProvider config={config}>
+      <div className='min-h-[100vh] select-none w-[100vw] bg-black'>
+        <SEO title='Dishant Sharma - Developer' />
+        <NavBar />
+        <HeroSection />
+        <Projects />
+        <div className='md:h-[10vh] md:py-0 py-[1rem] w-full border-t border-white px-[5%] md:gap-0 gap-[1rem] justify-between md:flex-row flex-col flex items-center'>
+          <div className='flex items-center gap-[1rem]'>
+            <Image src='/assets/favicon.ico' alt='logo' width={30} height={30} />
+            <p className='text-white'>© {
+              new Date().getFullYear()
+            } Dishant Sharma</p>
+          </div>
+          <div className='flex items-center gap-[0.5rem]'>
+            <HiOutlineMail className='text-white text-[20px]' />
+            <a href='mailto:dishant5570@gmail.com' className='text-white'>
+              dishant5570@gmail.com
+            </a>
+          </div>
         </div>
       </div>
-    </div>
+    </IPadCursorProvider>
   )
 }
 
